@@ -12,9 +12,16 @@ public class Main {
             Scanner in= new Scanner(System.in);
             System.out.println("Ingrese 1 para ingresar nuevos datos, 2 para ver el sismo de mayor intesidad, 3 para ver la cantidad de sismos mayores a 5.0, 4 para simular el envío de SMS, 5 para salir");
             String opcion = in.next();
-            if (Objects.equals(opcion, "1")){
-                double[][] listaDias = ingresarDatos();
-
+            double[][] listaDias = ingresarDatos();
+            if (Objects.equals(opcion, "1")) {
+                listaDias = ingresarDatos();
+            }
+            if (Objects.equals(opcion, "2")){
+                double mayorSismo= buscarMayorSismo(listaDias);
+                System.out.println(mayorSismo);
+            }
+            if (Objects.equals(opcion, "3")){
+                pass;
             }
         }
     }
@@ -26,8 +33,17 @@ public class Main {
                 listaDias[i][j]=sismo;
             }
         }
-        System.out.println(listaDias);
         return listaDias;
-
+    }
+    public static double buscarMayorSismo(double [][] listaDias){
+        double mayor = 0;
+        for (int i=0;i< listaDias.length;i++) {
+            for (int j = 0; j < listaDias[i].length; j++) {
+                if (listaDias[i][j]>mayor) {
+                    mayor = listaDias[i][j];
+                }
+            }
+        }
+        return mayor;
     }
 }
