@@ -21,10 +21,40 @@ public class Main {
                 System.out.println(mayorSismo);
             }
             if (Objects.equals(opcion, "3")){
-
+                int cantSismos = contarSismosMayores(listaDias);
+                System.out.println(cantSismos);
+            }
+            if (Objects.equals(opcion, "4")){
+                avisarAlerta(listaDias);
+            }
+            if (Objects.equals(opcion, "5")){
+                a=1;
             }
         }
     }
+
+    public static void avisarAlerta(double [][] listaDias) {
+        for (int i = 0; i < listaDias.length; i++) {
+            for (int j = 0; j < listaDias[i].length; j++) {
+                if (listaDias[i][j] > 7) {
+                    System.out.println("Alerta!!! se debe evacuar zona costera!");
+                }
+            }
+        }
+    }
+
+    public static int contarSismosMayores(double [][] listaDias) {
+        int cant = 0;
+        for (int i = 0; i < listaDias.length; i++) {
+            for (int j = 0; j < listaDias[i].length; j++) {
+                if (listaDias[i][j] > 5) {
+                    cant ++;
+                }
+            }
+        }
+        return cant;
+    }
+
     public static double[][] ingresarDatos(){
         double[][] listaDias = new double[7][24];
         for (int i=0;i< listaDias.length;i++){
