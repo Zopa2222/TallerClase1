@@ -21,7 +21,7 @@ public class Main {
                 System.out.println(mayorSismo);
             }
             if (Objects.equals(opcion, "3")){
-                pass;
+
             }
         }
     }
